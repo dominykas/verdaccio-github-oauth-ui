@@ -155,6 +155,8 @@ export class Plugin
       | (AllowAccess & PackageAccess),
     callback: pluginUtils.AccessCallback,
   ): Promise<void> {
+    console.info("DEBUG", JSON.stringify({ user, pkg }))
+
     if (!user.name) {
       // let other auth plugins and verdaccio's default handler deal with unauthenticated users
       callback(null, false)
